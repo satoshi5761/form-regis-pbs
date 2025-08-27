@@ -3,14 +3,20 @@ import streamlit as st
 import pandas as pd
 import time, requests
 
-st.header("Registrasi Public Speaking")
+st.markdown(r"""
+## Registrasi $\;\frac{\text{Public}}{\text{Speaking}}💬$
+""")
 
 GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzdFu99QQ07YPPIGbkQwglwaItJ6G-vfKz2GoyWkQHoSDsPPN2-rTUnbKONZvs-hkGDFQ/exec'
 
 LIMIT = 50
 with st.spinner("Loading...", show_time=1):
-    getapi = requests.get(GOOGLE_SHEET_URL)
-    cnt = int(getapi.text)
+    getapi = requests.get(GOOGLE_SHEET_URL).json()
+    print("="*10)
+    peserta = getapi['peserta']
+    cnt = int(getapi['total'])
+
+    print(peserta, cnt)
 
 # Create a form
 if (cnt < LIMIT):
@@ -58,7 +64,7 @@ if (cnt < LIMIT):
                     st.error("Error...")
 
 else:
-    st.write("Kuota Terpenuhi")
+    st.info("Kuota Terpenuhi", icon='ℹ️')
 
 
 
@@ -149,11 +155,27 @@ if (rd_btn):
         x = rundown_sesi1
         data_sesi1.loc[i] = [ x["Waktu"][i], x["Durasi (menit)"][i], x["Keterangan"][i] ]
 
-        time.sleep(0.3)
+        time.sleep(0.15)
         table.dataframe(data_sesi1, use_container_width=1)
 
         percentage += 1/n
         progress_bar.progress(percentage)
 
 
+lihat_peserta = st.button("Lihat Peserta")
+
+if (lihat_peserta):
+
+    data_peserta = pd.DataFrame(columns=["Nama Lengkap"])
+
+    table_peserta = st.empty()
+
+    if (len(peserta) == 0):
+        st.info("Belum ada pendaftar")
+    else:
+        for i in range(len(peserta)):
+            data_peserta.loc[i] = peserta[i]
+            table_peserta.dataframe(data_peserta)
+
+            time.sleep(0.15)
 
