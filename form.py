@@ -4,7 +4,7 @@ import pandas as pd
 import time, requests
 
 st.markdown(r"""
-## Registrasi $\;\frac{\text{Public}}{\text{Speaking}}💬$
+### Registrasi $\;\frac{\text{Public}}{\text{Speaking}}💬$
 """)
 
 GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzdFu99QQ07YPPIGbkQwglwaItJ6G-vfKz2GoyWkQHoSDsPPN2-rTUnbKONZvs-hkGDFQ/exec'
