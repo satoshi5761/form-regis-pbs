@@ -28,6 +28,12 @@ if (cnt < LIMIT):
 
         org = [
             "Mahasiswa",
+            "HMTI",
+            "HMSI",
+            "HMPSM",
+            "HMPSA",
+            "HMDP",
+            "HMA ATRIVM",
             "BEMU",
             "BEM FTeol",
             "BEM FABIO",
