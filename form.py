@@ -52,7 +52,7 @@ if (cnt < LIMIT):
         ]
         asal = st.selectbox("Miscellaneous", org)
 
-        submitted = st.form_submit_button("Submit")
+        submitted = st.form_submit_button("Submit", type='primary')
 
         if (submitted):
             data = {"name":name,
@@ -64,7 +64,7 @@ if (cnt < LIMIT):
                 req = requests.post(GOOGLE_SHEET_URL, json=data)
 
                 if (req.status_code == 200):
-                    st.success("Accepted")
+                    st.success("Accepted :hearts:")
                     st.balloons()
                 else:
                     st.error("Error...")
@@ -153,6 +153,17 @@ data_sesi1 = pd.DataFrame(columns=("Waktu", "Durasi (menit)", "Keterangan"))
 rd_btn = st.button("Lihat Rundown")
 
 if (rd_btn):
+    
+    c1, c2, c3 = st.columns([1,1,1])
+    with c1:
+        st.info(":calendar: 20 September 2025")
+
+    with c2:
+        st.info(":round_pushpin: Rudi Budiman")
+
+    with c3:
+        st.info(":alarm_clock: 10:00 - 13:00")
+
     percentage = 0.0
     progress_bar = st.progress(percentage) 
     table = st.empty()
