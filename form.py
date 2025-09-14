@@ -9,7 +9,7 @@ st.markdown(r"""
 
 GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzdFu99QQ07YPPIGbkQwglwaItJ6G-vfKz2GoyWkQHoSDsPPN2-rTUnbKONZvs-hkGDFQ/exec'
 
-LIMIT = 50
+LIMIT = 43
 with st.spinner("Loading...", show_time=1):
     getapi = requests.get(GOOGLE_SHEET_URL).json()
     print("="*10)
