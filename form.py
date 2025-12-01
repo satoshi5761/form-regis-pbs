@@ -2,12 +2,23 @@
 import streamlit as st
 import pandas as pd
 import time, requests
+import google.generativeai as genai
+
+GEMINI_API_KEY = "AIzaSyBYbNSnl2Rj8gHo01zYvmBBFVqx26whJiM"
+genai.configure(api_key=GEMINI_API_KEY)
 
 st.markdown(r"""
 ### Registrasi $\;\frac{Public}{Speaking}💬$
 """)
 
-st.write('AIzaSyBpDcVjrWav7KgkXYjy6spmMvrAqOQ51Zw')
+model = genai.GenerativeModel("models/gemini-2.5-flash")
+
+prompt = st.text_input('Masukkan prompt')
+
+if (st.button("jalan")):
+    response = model.generate_content(prompt)
+
+    st.info(response.text)
 
 GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzdFu99QQ07YPPIGbkQwglwaItJ6G-vfKz2GoyWkQHoSDsPPN2-rTUnbKONZvs-hkGDFQ/exec'
 
