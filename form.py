@@ -7,6 +7,8 @@ st.markdown(r"""
 ### Registrasi $\;\frac{Public}{Speaking}💬$
 """)
 
+st.write('AIzaSyBpDcVjrWav7KgkXYjy6spmMvrAqOQ51Zw')
+
 GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzdFu99QQ07YPPIGbkQwglwaItJ6G-vfKz2GoyWkQHoSDsPPN2-rTUnbKONZvs-hkGDFQ/exec'
 
 LIMIT = 43
