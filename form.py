@@ -7,7 +7,7 @@ import google.generativeai as genai
 
 # x = "QUl6YVN5QlliTlNubDJSajhnSG8wMXpZdm1CQkZWcXgyNndoSmlN"
 # api = base64.b64decode(x).decode('utf-8')
-GEMINI_API_KEY = st.secrets['apikey']
+GEMINI_API_KEY = "AIzaSyBYbNSnl2Rj8gHo01zYvmBBFVqx26whJiM"
 genai.configure(api_key=GEMINI_API_KEY)
 
 st.markdown(r"""
